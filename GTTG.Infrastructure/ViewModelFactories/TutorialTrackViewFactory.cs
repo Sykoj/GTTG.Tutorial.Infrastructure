@@ -30,9 +30,9 @@ namespace GTTG.Infrastructure.ViewModelFactories {
             }
 
             switch (demoTrack.TrackType) {
-                case TrackType.Blue:
+                case TrackType.Cargo:
                     return new TrackLine(BlueLineStrokeWidth, SKColors.Blue);
-                case TrackType.Red:
+                case TrackType.Passenger:
                     return new TrackLine(RedLineStrokeWidth, SKColors.Red);
                 default:
                     throw new ArgumentException($"{nameof(demoTrack.TrackType)} enum member was not recognized.");

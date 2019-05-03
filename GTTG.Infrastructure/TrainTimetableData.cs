@@ -43,22 +43,22 @@ namespace GTTG.Infrastructure {
 
                     new Station(
                         new List<TutorialTrack> {
-                            new TutorialTrack(TrackType.Blue),
-                            new TutorialTrack(TrackType.Red),
-                            new TutorialTrack(TrackType.Blue)
+                            new TutorialTrack(TrackType.Cargo),
+                            new TutorialTrack(TrackType.Passenger),
+                            new TutorialTrack(TrackType.Cargo)
                         }),
 
                     new Station(
                         new List<TutorialTrack> {
-                            new TutorialTrack(TrackType.Blue),
-                            new TutorialTrack(TrackType.Red),
-                            new TutorialTrack(TrackType.Blue),
-                            new TutorialTrack(TrackType.Blue)
+                            new TutorialTrack(TrackType.Cargo),
+                            new TutorialTrack(TrackType.Passenger),
+                            new TutorialTrack(TrackType.Cargo),
+                            new TutorialTrack(TrackType.Cargo)
                         }),
 
                     new Station( 
                         new List<Track> {
-                            new TutorialTrack(TrackType.Blue)
+                            new TutorialTrack(TrackType.Cargo)
                         })
                 });
     }
