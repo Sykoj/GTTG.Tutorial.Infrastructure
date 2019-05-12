@@ -6,10 +6,9 @@ using GTTG.Infrastructure.Model;
 using GTTG.Infrastructure.ViewModel;
 using GTTG.Model.Lines;
 using GTTG.Model.Model.Infrastructure;
-using GTTG.Model.Strategies.Types;
 using GTTG.Model.ViewModel.Infrastructure.Tracks;
 
-namespace GTTG.Infrastructure.ViewModelFactories { 
+namespace GTTG.Infrastructure.ViewModelFactories {
 
     public class TutorialTrackViewFactory : ITrackViewFactory<TutorialTrackView> {
 
@@ -18,12 +17,11 @@ namespace GTTG.Infrastructure.ViewModelFactories {
 
         public TutorialTrackView CreateTrackView(Track track) {
 
-            var lineType = LineType.Of(track);
-            var segment = new MeasureableSegment<LineType>(lineType);
+            var segment = new MeasureableSegment();
             return new TutorialTrackView(track, CreateTrackLine(track), segment);
         }
 
-        private static TrackLine CreateTrackLine(Track track) {
+        private static LinePaint CreateTrackLine(Track track) {
 
             if (!(track is TutorialTrack demoTrack)) {
                 throw new ArgumentException("Type of track was not recognized.");
@@ -31,9 +29,9 @@ namespace GTTG.Infrastructure.ViewModelFactories {
 
             switch (demoTrack.TrackType) {
                 case TrackType.Cargo:
-                    return new TrackLine(BlueLineStrokeWidth, SKColors.Blue);
+                    return new LinePaint(BlueLineStrokeWidth, SKColors.Blue);
                 case TrackType.Passenger:
-                    return new TrackLine(RedLineStrokeWidth, SKColors.Red);
+                    return new LinePaint(RedLineStrokeWidth, SKColors.Red);
                 default:
                     throw new ArgumentException($"{nameof(demoTrack.TrackType)} enum member was not recognized.");
             }

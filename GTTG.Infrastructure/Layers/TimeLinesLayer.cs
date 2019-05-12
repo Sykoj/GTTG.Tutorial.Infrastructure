@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using GTTG.Core.Base;
 using SkiaSharp;
 
 using GTTG.Core.Component;
@@ -85,6 +87,10 @@ namespace GTTG.Infrastructure.Layers {
                 _verticalHourLine.LineTo(new SKPoint(canvasX, drawingCanvas.Size.Height));
                 drawingCanvas.Canvas.DrawPath(_verticalHourLine, _halfHourLinePaint);
             }
+        }
+
+        public override IEnumerable<IVisual> ProvideVisuals() {
+            yield break;
         }
     }
 }

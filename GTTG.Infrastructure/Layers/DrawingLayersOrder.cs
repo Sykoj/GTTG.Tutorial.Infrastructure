@@ -13,5 +13,6 @@ namespace GTTG.Infrastructure.Layers {
             typeof(InfrastructureLayer),
             typeof(TimeAxisLayer)
         }.ToImmutableList();
+
     }
 }

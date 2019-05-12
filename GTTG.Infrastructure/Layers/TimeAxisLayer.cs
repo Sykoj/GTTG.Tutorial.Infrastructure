@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using GTTG.Core.Base;
 using SkiaSharp;
 
 using GTTG.Core.Component;
@@ -51,6 +53,10 @@ namespace GTTG.Infrastructure.Layers {
                 var x = _viewProvider.GetContentHorizontalPosition(dateTime);
                 drawingCanvas.Canvas.DrawText(dateTime.ToString("HH:mm"), new SKPoint(x, Height - Padding), TimePaint);
             }
+        }
+
+        public override IEnumerable<IVisual> ProvideVisuals() {
+            yield break;
         }
     }
 }

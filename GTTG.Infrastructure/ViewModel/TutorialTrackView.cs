@@ -3,7 +3,6 @@
 using GTTG.Core.Strategies.Implementations;
 using GTTG.Model.Lines;
 using GTTG.Model.Model.Infrastructure;
-using GTTG.Model.Strategies.Types;
 using GTTG.Model.ViewModel.Infrastructure.Tracks;
 
 namespace GTTG.Infrastructure.ViewModel {
@@ -12,9 +11,8 @@ namespace GTTG.Infrastructure.ViewModel {
 
         public readonly int Space = 4;
 
-        public TutorialTrackView(Track track, TrackLine trackLine, MeasureableSegment<LineType> trackLineSegment) 
-            : base(track, trackLine, trackLineSegment) {
-
+        public TutorialTrackView(Track track, LinePaint linePaint, MeasureableSegment trackLineSegment) 
+            : base(track, linePaint, trackLineSegment) {
         }
 
         protected override SKSize MeasureOverride(SKSize availableSize) {
@@ -27,8 +25,8 @@ namespace GTTG.Infrastructure.ViewModel {
 
             var scale = finalSize.Height / DesiredSize.Height;
             TrackLineSegment.SetBounds(this, Space * scale, finalSize.Height - Space * scale);
-            if (TrackLine.DesiredStrokeWidth > finalSize.Height - 2 * Space) {
-                TrackLine.Arrange(TrackLine.DesiredStrokeWidth * scale);
+            if (LinePaint.DesiredStrokeWidth > finalSize.Height - 2 * Space) {
+                LinePaint.Arrange(LinePaint.DesiredStrokeWidth * scale);
             }
 
             return new SKSize(float.MaxValue, finalSize.Height);

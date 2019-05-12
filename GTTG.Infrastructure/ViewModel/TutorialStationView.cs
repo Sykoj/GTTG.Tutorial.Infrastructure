@@ -11,9 +11,12 @@ namespace GTTG.Infrastructure.ViewModel {
 
         public TutorialStationView(Station station, ITrackViewFactory<TutorialTrackView> trackViewFactory)
             : base(station, trackViewFactory) {
+
+            HasClipEnabled = true; // apply clip, because DrawColor would otherwise cover whole canvas
         }
 
         protected override void OnDraw(DrawingCanvas drawingCanvas) {
+
 
             drawingCanvas.Canvas.DrawColor(SKColors.WhiteSmoke);
             foreach (var trackView in TrackViews) {
